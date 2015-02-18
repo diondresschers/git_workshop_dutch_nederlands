@@ -11,6 +11,7 @@
    virtualbox_installatie 
    centos_installatie
    git_installatie
+   git_init
 
 Welkom bij de Git & GitHub Workshop! 
 ====================================
