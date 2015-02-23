@@ -5,6 +5,7 @@ Starten met Git
 We gaan eerst naar onze home directory (~) en maken daar een lege directory.
 
 .. code-block:: bash
+
     [dion@localhost ~]$ cd ~
     [dion@localhost ~]$ mkdir repo_een
     [dion@localhost ~]$ cd repo_een
@@ -12,6 +13,7 @@ We gaan eerst naar onze home directory (~) en maken daar een lege directory.
 Het is uiteraard een lege directory, dus er zitten geen bestanden in.
 
 .. code-block:: bash
+
     [dion@localhost repo_een]$ ls -la
     total 4
     drwxrwxr-x. 2 dion dion    6 Feb 18 08:01 .
@@ -20,6 +22,7 @@ Het is uiteraard een lege directory, dus er zitten geen bestanden in.
 Vervolgens gaan we kijken wat de status van git is met ``git status``
 
 .. code-block:: bash
+
     [dion@localhost repo_een]$ git status
     fatal: Not a git repository (or any parent up to mount point /home)
     Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
@@ -29,12 +32,14 @@ We krijgen de melding dat de directory helemaal geen git repository is.
 We kunnen een git repository initialiseren met ``git init``.
 
 .. code-block:: bash
+
     [dion@localhost repo_een]$ git init
     Initialized empty Git repository in /home/dion/repo_een/.git/
 
 Als we nu naar de status kijken zien we dat het nu wel een repository is (op de 'branch' die standaard 'master' heet). Er is alleen nog niks wat 'commit' kan worden.
 
 .. code-block:: bash
+
     [dion@localhost repo_een]$ git status
     # On branch master
     #
@@ -45,6 +50,7 @@ Als we nu naar de status kijken zien we dat het nu wel een repository is (op de 
 Kijken we in de directory dan zien we nu de verborgen directory '.git' staan die net aangemaakt is.
 
 .. code-block:: bash
+
     [dion@localhost repo_een]$ ls -la
 
     total 8
@@ -54,7 +60,8 @@ Kijken we in de directory dan zien we nu de verborgen directory '.git' staan die
 
 Hierin staan weer een aantal git bestanden. We willen de filestructuur duidelijk maken met 'tree' maar deze is standaard niet geinstalleerd, dus installeren we hem met 'yum install tree'.
 
-.. code-block::
+.. code-block:: bash
+
     [dion@localhost repo_een]$ tree .git
     -bash: tree: command not found
     [dion@localhost repo_een]$ sudo yum install tree
@@ -104,6 +111,7 @@ Hierin staan weer een aantal git bestanden. We willen de filestructuur duidelijk
 Nu zien we netjes de opbouw van de '.git' directory:
 
 .. code-block:: bash
+
     [dion@localhost repo_een]$ tree .git
     .git
     |-- branches
