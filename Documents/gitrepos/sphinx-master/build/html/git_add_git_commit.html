@@ -1,0 +1,258 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>git add &amp; git commit &mdash; Git &amp; GitHub Workshop 1.0 documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="Git &amp; GitHub Workshop 1.0 documentation" href="index.html"/>
+        <link rel="prev" title="Een file aanmaken" href="een_file_aanmaken.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="index.html" class="fa fa-home"> Git & GitHub Workshop</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="virtualbox_installatie.html">Virtual Box Installatie</a></li>
+<li class="toctree-l1"><a class="reference internal" href="centos_installatie.html">CentOS 7 Installatie</a></li>
+<li class="toctree-l1"><a class="reference internal" href="git_installatie.html">Git Installatie</a></li>
+<li class="toctree-l1"><a class="reference internal" href="git_init.html">git init &amp; git status</a></li>
+<li class="toctree-l1"><a class="reference internal" href="areas.html">Git Areas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="een_file_aanmaken.html">Een file aanmaken</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">git add &amp; git commit</a></li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Git & GitHub Workshop</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>git add &amp; git commit</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="_sources/git_add_git_commit.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            
+  <div class="section" id="git-add-git-commit">
+<h1>git add &amp; git commit<a class="headerlink" href="#git-add-git-commit" title="Permalink to this headline">¶</a></h1>
+<p>We hebben nu dus een nieuwe file aangemaakt.</p>
+<div class="highlight-bash"><div class="highlight"><pre>dion@localhost repo_een<span class="o">]</span><span class="nv">$ </span>ls -la
+total 8
+drwxrwxr-x. 3 dion dion   35 Mar 13 06:46 .
+drwx------. 3 dion dion   94 Mar 13 06:46 ..
+drwxrwxr-x. 8 dion dion 4096 Mar 13 06:48 .git
+-rwxrw-r--. 1 dion dion   49 Feb 23 18:29 show_dir.sh
+</pre></div>
+</div>
+<p>Als we nu een &#8216;git status&#8217; uitvoeren zien we dat de &#8216;show_dir.sh&#8217; file wel in de Working Directory staat, maar &#8216;untracked&#8217; is. We kunnen de file van de Working Directory naar de &#8216;Staging Area&#8217; brengen met &#8216;git add&#8217;.</p>
+<div class="highlight-bash"><div class="highlight"><pre>dion@localhost repo_een<span class="o">]</span><span class="nv">$ </span>git status
+<span class="c"># On branch master</span>
+<span class="c">#</span>
+<span class="c"># Initial commit</span>
+<span class="c">#</span>
+<span class="c"># Untracked files:</span>
+<span class="c">#   (use &quot;git add &lt;file&gt;...&quot; to include in what will be committed)</span>
+<span class="c">#</span>
+<span class="c">#   show_dir.sh</span>
+nothing added to commit but untracked files present <span class="o">(</span>use <span class="s2">&quot;git add&quot;</span> to track<span class="o">)</span>
+</pre></div>
+</div>
+<p>Dit zullen we dan ook maar doen.</p>
+<p>Je kan met &#8216;git add <em>show_dir.sh</em>&#8216; alleen dit specifieke bestand naar de Staging Area brengen, met &#8216;git add .&#8217; doe je dit voor alle bestanden in die directory.</p>
+<div class="highlight-bash"><div class="highlight"><pre>dion@localhost repo_een<span class="o">]</span><span class="nv">$ </span>git add
+Nothing specified, nothing added.
+Maybe you wanted to say <span class="s1">&#39;git add .&#39;</span>?
+<span class="o">[</span>dion@localhost repo_een<span class="o">]</span><span class="nv">$ </span>git add .
+</pre></div>
+</div>
+<p>We kunnen nu zien dat een nieuwe file die je weer kan &#8216;unstagen&#8217; met &#8216;git rm &#8211;chached <em>show_dir</em>&#8216;</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="o">[</span>dion@localhost repo_een<span class="o">]</span><span class="nv">$ </span>git status
+
+<span class="c"># On branch master</span>
+<span class="c">#</span>
+<span class="c"># Initial commit</span>
+<span class="c">#</span>
+<span class="c"># Changes to be committed:</span>
+<span class="c">#   (use &quot;git rm --cached &lt;file&gt;...&quot; to unstage)</span>
+<span class="c">#</span>
+<span class="c">#   new file:   show_dir.sh</span>
+<span class="c">#</span>
+</pre></div>
+</div>
+<p>Nu de file in de Staging Area zit, kan je hem naar de Git Repostory brengen met &#8216;git commit&#8217;. Als je dit doet wordt meteen een vim-achtige teksteditor geopenend waar je commentaar voor de wijzigingen in kan zetten. Je sluit het commentaar af met ESC-toets, dan :wq (zelfde als vim).</p>
+<p>Een andere optie is om de commentaar meteen in de commandoregel toe te voegen via bijvoorbeeld:</p>
+<div class="highlight-bash"><div class="highlight"><pre>git commit -m <span class="s2">&quot;Nieuw bash script gemaakt.&quot;</span>
+</pre></div>
+</div>
+<p>Je ziet nu dat alles &#8216;gecommit&#8217; is en dat er geen wijzigingen zijn in de Working Directory.</p>
+<div class="highlight-bash"><div class="highlight"><pre>dion@localhost repo_een<span class="o">]</span><span class="nv">$ </span>git status
+<span class="c"># On branch master</span>
+nothing to commit, working directory clean
+</pre></div>
+</div>
+<p>We wijzigen nog een keer met &#8216;vim&#8217; het script zodat &#8216;ls la&#8217;, &#8216;ls -lahi&#8217; wordt.</p>
+<p>Met &#8216;git status&#8217; zie je nu de volgende informatie:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="o">[</span>dion@localhost repo_een<span class="o">]</span><span class="nv">$ </span>git status
+<span class="c"># On branch master</span>
+<span class="c"># Changes not staged for commit:</span>
+<span class="c">#   (use &quot;git add &lt;file&gt;...&quot; to update what will be committed)</span>
+<span class="c">#   (use &quot;git checkout -- &lt;file&gt;...&quot; to discard changes in working directory)</span>
+<span class="c">#</span>
+<span class="c">#   modified:   show_dir.sh</span>
+<span class="c">#</span>
+no changes added to commit <span class="o">(</span>use <span class="s2">&quot;git add&quot;</span> and/or <span class="s2">&quot;git commit -a&quot;</span><span class="o">)</span>
+</pre></div>
+</div>
+<p>Je krijgt nu de hint dat je een commando &#8216;git commit -a&#8217; kan gebruiken in plaats van de losse &#8216;git add&#8217; en daarna &#8216;git commit&#8217;.</p>
+<p>Dit doen we dus maar braaf en voegen meteen met &#8216;-m&#8217; commentaar toe.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="o">[</span>dion@localhost repo_een<span class="o">]</span><span class="nv">$ </span>git commit -am <span class="s2">&quot;Ook human-readible en inodes toegevoegd&quot;</span>
+<span class="o">[</span>master 349bf47<span class="o">]</span> Ook human-readible en inodes toegevoegd
+ Committer: Dion Dresschers &lt;dion@localhost.localdomain&gt;
+Your name and email address were configured automatically based
+on your username and hostname. Please check that they are accurate.
+You can suppress this message by setting them explicitly:
+
+     git config --global user.name <span class="s2">&quot;Your Name&quot;</span>
+     git config --global user.email you@example.com
+
+After doing this, you may fix the identity used <span class="k">for </span>this commit with:
+
+     git commit --amend --reset-author
+
+ 1 file changed, 1 insertion<span class="o">(</span>+<span class="o">)</span>, 1 deletion<span class="o">(</span>-<span class="o">)</span>
+</pre></div>
+</div>
+<p>Je ziet boven dat er een file gewijzigd is, waarbij er 1 regel bijgekomen is en een gewijzigd. Daarnaast nog een verhaal over dat onze naam en emailadres automatisch gegenereerd is.</p>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="een_file_aanmaken.html" class="btn btn-neutral" title="Een file aanmaken"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Dion Dresschers.
+    </p>
+  </div>
+
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

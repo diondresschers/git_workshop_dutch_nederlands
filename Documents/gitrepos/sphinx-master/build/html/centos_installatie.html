@@ -1,0 +1,224 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>CentOS 7 Installatie &mdash; Git &amp; GitHub Workshop 1.0 documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="Git &amp; GitHub Workshop 1.0 documentation" href="index.html"/>
+        <link rel="next" title="Git Installatie" href="git_installatie.html"/>
+        <link rel="prev" title="Virtual Box Installatie" href="virtualbox_installatie.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="index.html" class="fa fa-home"> Git & GitHub Workshop</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="virtualbox_installatie.html">Virtual Box Installatie</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">CentOS 7 Installatie</a></li>
+<li class="toctree-l1"><a class="reference internal" href="git_installatie.html">Git Installatie</a></li>
+<li class="toctree-l1"><a class="reference internal" href="git_init.html">git init &amp; git status</a></li>
+<li class="toctree-l1"><a class="reference internal" href="areas.html">Git Areas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="git_add_git_commit.html">git add &amp; git commit</a></li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Git & GitHub Workshop</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>CentOS 7 Installatie</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="_sources/centos_installatie.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            
+  <div class="section" id="centos-7-installatie">
+<h1>CentOS 7 Installatie<a class="headerlink" href="#centos-7-installatie" title="Permalink to this headline">¶</a></h1>
+<p>Nadat je een VM met CentOS 7 hebt aangemaakt moeten we hem nog verder configueren.</p>
+<p>Je hebt tijdens de installatie in ieder geval een &#8216;root&#8217; account aangemaakt met wachtwoord.</p>
+<p>Je kan nu inloggen met dit account.</p>
+<p>Bij &#8216;localhost login:&#8217; vul je &#8216;root&#8217; in, en bij &#8216;Password:&#8217; uiteraard het paswoord.</p>
+<p>Waarschijnlijk ben je nu niet verbonden met het netwerk (dit in het geval als je fysieke PC dat wel is).</p>
+<p>Type &#8216;ping 8.8.8.8&#8217; om te kunnen testen of je kan pingen naar een publieke server op het internet.</p>
+<p>Type &#8216;ip address show&#8217; om je huidige netwerk interfaces te zien inclusief een mogelijk IP adres.</p>
+<p>Zoals onder te zien is een ping naar 8.8.8.8 niet succesvol.</p>
+<img alt="_images/centos_ip_address_show.png" src="_images/centos_ip_address_show.png" />
+<p>Verder heb je twee interfaces:</p>
+<ul class="simple">
+<li>lo</li>
+<li>enp0s3</li>
+</ul>
+<p>De &#8216;lo&#8217; interface is een lokaal interface en kan je negeren. We focussen ons op het andere adres waarmee communicatie met andere machines mee mogelijk is. Het is goed mogelijk dat de inteface op jouw VM een andere benaming heeft.</p>
+<p>De reden dat deze interace geen IP address is omdat deze standaard uit staat. Je kan het opstartscript voor deze interace bekijken via &#8216;cat /etc/sysconfig/network-scripts/ifcfg-enp0s3&#8217;.</p>
+<p>Je ziet hier staan &#8216;ONBOOT=no&#8217;.</p>
+<p>We gaan nu de file wijzigen in het programma &#8216;vi&#8217; (of beter gezet &#8216;vim&#8217;).</p>
+<p>Typ hiervoor &#8216;vi /etc/sysconfig/network-scripts/ifcfg-enp0s3&#8217;.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Zorg dat je &#8216;root&#8217; rechten hebt zodat je de file kan veranderen. Hiervoor moet je &#8216;root&#8217; zijn, of &#8216;sudo&#8217; typen voor elk commando om deze rechten te krijgen.</p>
+</div>
+<p>Druk dan &#8216;i&#8217; om naar &#8216;insert&#8217; mode te gaan. Gebruik dan de pijltjes toetsen om &#8216;ONBOOT=no&#8217; te vernderen in &#8216;ONBOOT=yes&#8217;. Daarna druk je de &#8216;ESC&#8217;-toets, vervolgd door &#8216;wq&#8217;.</p>
+<p>Je kan nu het netwerk herstarten met <tt class="docutils literal"><span class="pre">systemctl</span> <span class="pre">restart</span> <span class="pre">network.service</span></tt>. Een ander alternatief (de botte bijl manier) is om de VM te herstarten met <tt class="docutils literal"><span class="pre">systemctl</span> <span class="pre">reboot</span></tt>.</p>
+<p>Je ziet nu dat we wel een IP adres hebben op onze netwerk interface &#8216;enp0s3&#8217; met IP address &#8216;10.0.2.15&#8217;.</p>
+<p>We kunnen ook pingen naar 8.8.8.8.</p>
+<img alt="_images/centos_network.png" src="_images/centos_network.png" />
+<p>Je kan ook pingen naar je eigen interface via <tt class="docutils literal"><span class="pre">ping</span> <span class="pre">10.0.2.15</span></tt>.</p>
+<p>Probeer je echter te pingen naar 10.0.2.15 vanaf je eigen computer (dus niet vanuit de VM), dan zie je dat het niet lukt.</p>
+<div class="highlight-bash"><div class="highlight"><pre>dionysos:~<span class="nv">$ </span>ping 10.0.2.15
+PING 10.0.2.15 <span class="o">(</span>10.0.2.15<span class="o">)</span> 56<span class="o">(</span>84<span class="o">)</span> bytes of data.
+From 10.0.2.200 <span class="nv">icmp_seq</span><span class="o">=</span>1 Destination Host Unreachable
+From 10.0.2.200 <span class="nv">icmp_seq</span><span class="o">=</span>2 Destination Host Unreachable
+From 10.0.2.200 <span class="nv">icmp_seq</span><span class="o">=</span>3 Destination Host Unreachable
+From 10.0.2.200 <span class="nv">icmp_seq</span><span class="o">=</span>4 Destination Host Unreachable
+^C
+--- 10.0.2.15 ping statistics ---
+4 packets transmitted, 0 received, +4 errors, 100% packet loss, <span class="nb">time </span>2999ms
+pipe 4
+</pre></div>
+</div>
+<p>Ga nu vanuit VirtualBox naar &#8216;Menu&#8217;, &#8216;Settings&#8217;, &#8216;Network&#8217; en klik daar op &#8216;Port Forwarding&#8217;.</p>
+<img alt="_images/virtualbox_network_settings.png" src="_images/virtualbox_network_settings.png" />
+<p>Klik daar op het icoontje met het plus-teken. En vul onderstaande gegevens in:</p>
+<img alt="_images/virtualbox_port_forwarding_rules.png" src="_images/virtualbox_port_forwarding_rules.png" />
+<p>Dit betekent dat als je naar je eigen machine verbindt (bv. via IP adres 127.0.0.1) met poort 2222 dat je dan met de VM verbindt met poort 22. Dit is standaard SSH. Je kan nu dus verbinden via SSH (een commando regel verbinding), met de VM.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">In Linux en hoogstwaarschijnlijk in MacOS zit standaard een SSH programma. Het kan zijn dat Windows deze niet heeft. In dat geval kan je <a class="reference external" href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html">PuTTY downloaden</a> waarmee je wel via SSH verbinding kan maken.</p>
+</div>
+<p>Als je geen naam invoert (zoals boven) de naam gebruikt dat je op dat moment gebruikt. In bovenstaand voorbeeld is dat &#8216;dion&#8217;. Wil je meteen met &#8216;root&#8217; inloggen geef dat dan mee:</p>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="git_installatie.html" class="btn btn-neutral float-right" title="Git Installatie"/>Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="virtualbox_installatie.html" class="btn btn-neutral" title="Virtual Box Installatie"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Dion Dresschers.
+    </p>
+  </div>
+
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

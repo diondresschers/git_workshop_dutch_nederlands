@@ -1,0 +1,237 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Virtual Box Installatie &mdash; Git &amp; GitHub Workshop 1.0 documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="Git &amp; GitHub Workshop 1.0 documentation" href="index.html"/>
+        <link rel="next" title="CentOS 7 Installatie" href="centos_installatie.html"/>
+        <link rel="prev" title="Welkom bij de Git &amp; GitHub Workshop!" href="index.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="index.html" class="fa fa-home"> Git & GitHub Workshop</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="">Virtual Box Installatie</a></li>
+<li class="toctree-l1"><a class="reference internal" href="centos_installatie.html">CentOS 7 Installatie</a></li>
+<li class="toctree-l1"><a class="reference internal" href="git_installatie.html">Git Installatie</a></li>
+<li class="toctree-l1"><a class="reference internal" href="git_init.html">git init</a></li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Git & GitHub Workshop</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Virtual Box Installatie</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="_sources/virtualbox_installatie.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            
+  <div class="section" id="virtual-box-installatie">
+<h1>Virtual Box Installatie<a class="headerlink" href="#virtual-box-installatie" title="Permalink to this headline">¶</a></h1>
+<p>Wil je deze cursus stap voor stap kunnen volgen kan je gebruik maken van hetzelfde besturingssysteem dat wij gebruiken, namelijk CentOS 7.</p>
+<p>Heb je geen CentOS 7, maar wel een computer met:</p>
+<ul class="simple">
+<li>Windows</li>
+<li>Linux</li>
+<li>MacOS</li>
+</ul>
+<p>dan kan je CentOS 7 draaien als virtuele machine in VirtualBox <a class="footnote-reference" href="#id3" id="id1">[2]</a></p>
+<p><a class="reference external" href="http://virtualbox.org">VirtualBox</a> is een virtualizatie programma zoals VMware Player.</p>
+<img alt="_images/virtualbox.png" src="_images/virtualbox.png" />
+<p>CentOS is een fork van Red Hat Enterprise Linux. We beginnen met CentOS 7 Core <a class="footnote-reference" href="#id4" id="id2">[3]</a> , wat een vrij kale versie is zonder GUI.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Hier vind je de <a class="reference external" href="https://www.virtualbox.org/manual/UserManual.html">handleiding</a> van VirtualBox.</p>
+</div>
+<p>Je klikt als eerste op &#8216;New&#8217; om een nieuwe VM te starten.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">We gaan altijd uitsluitend af op Engelstalige software.</p>
+</div>
+<p>Daarna type je <tt class="docutils literal"><span class="pre">CentOS</span> <span class="pre">7</span></tt> bij &#8216;Name&#8217;. Je ziet dat automatisch Red Hat geselecteerd wordt als besturingssysteem, wat prima is.</p>
+<img alt="_images/virtualbox_new.png" src="_images/virtualbox_new.png" />
+<p>Klik dan op &#8216;Next&#8217;.</p>
+<p>Je kan nu het geheugen selecteren voor de virtuele machine. De 512MB is prima en kan altijd achteraf nog makkelijk gewijzigd worden. Klik dus op &#8216;Next&#8217;.</p>
+<p>Een VM heeft ook een harde schijf (wat eigenlijk een file is op het besturingssysteem waar je VirtualBox geinstalleerd hebt.).</p>
+<p>De keuze &#8216;Create a virtual hard drive now&#8217; is prima, druk dus op &#8216;Create&#8217;.</p>
+<p>Je krijgt daarna de keuze wat voor type virtuele harde schijf je wilt maken. Dit maakt het verplaatsen van een VM van het ene virtualizatieprogramma (dus VirtualBox) naar het andere (bv. Microsoft Hyper-V) makkelijker.</p>
+<img alt="_images/virtualbox_create_vhd.png" src="_images/virtualbox_create_vhd.png" />
+<p>De volgende vraag gaat over of de grootte van virtuele harde schijf bestand net zo groot moet zijn als de gekozen grootte van harde schijf. Standaard wordt niet-beschreven ruimte in de VM niet meegenomen in de grootte van het harde schijf bestand. Dit is een goede keuze, dus klik op &#8216;Next&#8217;</p>
+<p>Hier kan je de grootte van de virtuele harde schijf kiezen. Als je de selectie van de vorige instelling op &#8216;Dynamically allocted&#8217; hebt laten staan, dan kan je de grootte lekker groot maken (achteraf wijzigen is wat lastiger). Schuif de knop helemaal naar links voor de grootst mogelijke keuze.</p>
+<p>Klik nu op &#8216;Create&#8217; om de VM klaar te maken (deze heeft echter nog geen besturingssysteem).</p>
+<p>Selecteer de nieuw gemaakte VM (deze heeft dus de naam &#8216;CentOS 7&#8217;).</p>
+<img alt="_images/virtualbox_empty.png" src="_images/virtualbox_empty.png" />
+<p>Om de VM op te starten klik je &#8216;Start&#8217;</p>
+<p>Je kunt meteen een opstart disk selecteren. Klik hiervoor op het icoontje rechts van de huidige selectie. Navigeer naar de ISO file die je net gedownload hebt en druk op &#8216;Open&#8217;. Druk nu &#8216;Start&#8217; om de VM op te starten.</p>
+<img alt="_images/virtualbox_select_startup_disk.png" src="_images/virtualbox_select_startup_disk.png" />
+<p>Nu wordt de ISO gestart en kan je de keuze maken om CentOS 7 te installeren door simpel de &#8216;Enter&#8217;-toets in te drukken.</p>
+<img alt="_images/centos_iso.png" src="_images/centos_iso.png" />
+<p>Je komt nu in het graphische installatiescherm. Het besturingssysteem zelf zal standaard geen GUI bevatten.</p>
+<p>Selecteer als taal &#8216;Engels (United States)&#8217; en klik &#8216;Continue&#8217;.</p>
+<p>Klik nu op &#8216;INSTALLATION DESTINATION&#8217; en vervolgens twee keer de virtuele hard disk die je eerder hebt aangemaakt zodat je daar een vinkje ziet. Klik dan op &#8216;Done&#8217; linksboven.</p>
+<img alt="_images/centos_installation.png" src="_images/centos_installation.png" />
+<p>Nu kan je &#8216;Begin Installation&#8217; drukken om de installatie te beginnen.</p>
+<p>Je moet nu een paswoord maken voor het &#8216;root&#8217; account. Het &#8216;root&#8217; account heeft alle rechten op een systeem.</p>
+<p>Klik op &#8216;ROOT PASSWOORD&#8217; en vervolgens het paswoord (plus het wachtwoord om typo&#8217;s te voorkomen). Mocht het geen sterk wachtwoord zijn dat je twee keer op &#8216;done&#8217; moet drukken om verder te gaan.</p>
+<p>Je kan optioneel een tweede account aanmaken door op &#8216;USER CREATION&#8217; te kiezen.</p>
+<img alt="_images/centos_user_creation.png" src="_images/centos_user_creation.png" />
+<p>Selecteer &#8216;Make this user administrator&#8217;, zodat je ook met dit account &#8216;root&#8217; rechten kan verkrijgen.
+Vervolgens weer &#8216;Done&#8217; klikken.</p>
+<p>Klik &#8216;Finish configuration&#8217; om het installeren compleet te maken.</p>
+<p>Dan klik je &#8216;Reboot&#8217; om te herstarten.</p>
+<p>Nadat de hele machine herstart is kan je inloggen met het &#8216;root&#8217; account of je eigen gemaakte account.</p>
+<p>Wil je van je VM terug naar je huidige machine, dan kan je de rechter CTRL-toets indrukken (dit is standaard ingesteld ald de zgn. Host-key). Dan kan je met de muis weer naar je huidige systeem terug.</p>
+<img alt="_images/centos_login.png" src="_images/centos_login.png" />
+<p class="rubric">Footnotes</p>
+<table class="docutils footnote" frame="void" id="id3" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[2]</a></td><td>Virtualbox kan gedownload worden van <a class="reference external" href="http://virtualbox.org">http://virtualbox.org</a></td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id4" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id2">[3]</a></td><td>CentOS 7 Core kan je onder andere hier <a class="reference external" href="http://mirror.yourwebhoster.eu/centos/7.0.1406/isos/x86_64/CentOS-7.0-1406-x86_64-DVD.iso">downloaden</a></td></tr>
+</tbody>
+</table>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="centos_installatie.html" class="btn btn-neutral float-right" title="CentOS 7 Installatie"/>Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Welkom bij de Git &amp; GitHub Workshop!"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Dion Dresschers.
+    </p>
+  </div>
+
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

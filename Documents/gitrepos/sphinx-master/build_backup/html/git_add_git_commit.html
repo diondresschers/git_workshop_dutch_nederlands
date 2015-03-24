@@ -1,0 +1,194 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>git add &amp; git commit &mdash; Git &amp; GitHub Workshop 1.0 documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="Git &amp; GitHub Workshop 1.0 documentation" href="index.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="index.html" class="fa fa-home"> Git & GitHub Workshop</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul>
+<li class="toctree-l1"><a class="reference internal" href="virtualbox_installatie.html">Virtual Box Installatie</a></li>
+<li class="toctree-l1"><a class="reference internal" href="centos_installatie.html">CentOS 7 Installatie</a></li>
+<li class="toctree-l1"><a class="reference internal" href="git_installatie.html">Git Installatie</a></li>
+<li class="toctree-l1"><a class="reference internal" href="git_init.html">git init &amp; git status</a></li>
+<li class="toctree-l1"><a class="reference internal" href="areas.html">Git Areas</a></li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Git & GitHub Workshop</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>git add &amp; git commit</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="_sources/git_add_git_commit.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            
+  <div class="section" id="git-add-git-commit">
+<h1>git add &amp; git commit<a class="headerlink" href="#git-add-git-commit" title="Permalink to this headline">¶</a></h1>
+<p>We gaan naar onze repostory:</p>
+<blockquote>
+<div><a class="reference external" href="mailto:dion&#37;&#52;&#48;localhost">dion<span>&#64;</span>localhost</a> ~]$ cd ~/repo_een</div></blockquote>
+<p>Daarin maken met het tekstbewerkigsprogramma vi (eigenlijk vim) het bestand &#8216;show_dir.sh&#8217; aan.</p>
+<blockquote>
+<div>[<a class="reference external" href="mailto:dion&#37;&#52;&#48;localhost">dion<span>&#64;</span>localhost</a> repo_een]$ vi show_dir.sh</div></blockquote>
+<p>In vim kan je met de &#8216;ESC&#8217;-toets naar de verschillende modi.</p>
+<p>Met de &#8216;i&#8217;-toets, kan je text invoegen.</p>
+<p>Gebruik je &#8216;ESC&#8217; en typ je daarna :wq dan schrijf je het bestand weg (de &#8216;w&#8217; van &#8216;write&#8217;) en sluit je vim af (de &#8216;q&#8217; van &#8216;quit&#8217;).</p>
+<p>Zorg dat deze tekst in het bestand staat en sluit dan af.</p>
+<blockquote>
+<div><p>#!/bin/bash</p>
+<p>echo &#8220;Dit is de directory:&#8221;</p>
+<p>ls -la</p>
+</div></blockquote>
+<p>Je hebt nu een script gemaakt. Je kan de rechten van script zien met &#8216;-ls -l&#8217;:</p>
+<p>[<a class="reference external" href="mailto:dion&#37;&#52;&#48;localhost">dion<span>&#64;</span>localhost</a> repo_een]$ ls -l show_dir.sh
+-rw-rw-r&#8211;. 1 dion dion 49 Feb 23 18:29 show_dir.sh</p>
+<p>Je ziet dat de eerste &#8216;rw-&#8216; dit betekend dat de gebruiker &#8216;dion&#8217; (dit is de eerste &#8216;dion&#8217;), de rechten heeft van &#8216;read&#8217;, &#8216;write&#8217; maar geen &#8216;execute&#8217;. We gaan de rechten nu wijzigen met het commando &#8216;chmod&#8217; (&#8216;ch&#8217;ange &#8216;mod&#8217;ify), waarbij we de &#8216;u&#8217; (user), de rechten geven van &#8216;x&#8217; (execute):</p>
+<p>[<a class="reference external" href="mailto:dion&#37;&#52;&#48;localhost">dion<span>&#64;</span>localhost</a> repo_een]$ chmod u+x show_dir.sh</p>
+<p>We kunnen nu zien dat deze rechten gewijzigd zijn:</p>
+<p>[<a class="reference external" href="mailto:dion&#37;&#52;&#48;localhost">dion<span>&#64;</span>localhost</a> repo_een]$ ls -l show_dir.sh</p>
+<p>-rwxrw-r&#8211;. 1 dion dion 49 Feb 23 18:29 show_dir.sh</p>
+<p>We hebben nu de rechten om het bestand uit te voeren, echter moet je de directory daarbij meegeven. Hieronder is dus niet de juiste manier:</p>
+<p>[<a class="reference external" href="mailto:dion&#37;&#52;&#48;localhost">dion<span>&#64;</span>localhost</a> repo_een]$ show_dir.sh
+-bash: show_dir.sh: command not found</p>
+<p>Dit kan wel (we geven met de punt &#8216;.&#8217; de huisige directory aan en de slash is een scheidingsteken):</p>
+<p>[<a class="reference external" href="mailto:dion&#37;&#52;&#48;localhost">dion<span>&#64;</span>localhost</a> repo_een]$ ./show_dir.sh
+Dit is de directory:
+total 12
+drwxrwxr-x. 3 dion dion   47 Feb 23 18:29 .
+drwx&#8212;&#8212;. 3 dion dion 4096 Feb 18 08:01 ..
+drwxrwxr-x. 7 dion dion 4096 Feb 23 18:26 .git
+-rwxrw-r&#8211;. 1 dion dion   49 Feb 23 18:29 show_dir.sh</p>
+</div>
+
+
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Dion Dresschers.
+    </p>
+  </div>
+
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
