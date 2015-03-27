@@ -1,0 +1,361 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>git merge &amp; (git log) &mdash; Git &amp; GitHub Workshop 1.0 documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="Git &amp; GitHub Workshop 1.0 documentation" href="index.html"/>
+        <link rel="prev" title="git branch (&amp; git checkout)" href="git_branch.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="index.html" class="fa fa-home"> Git & GitHub Workshop</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="virtualbox_installatie.html">Virtual Box Installatie</a></li>
+<li class="toctree-l1"><a class="reference internal" href="centos_installatie.html">CentOS 7 Installatie</a></li>
+<li class="toctree-l1"><a class="reference internal" href="git_installatie.html">Git Installatie</a></li>
+<li class="toctree-l1"><a class="reference internal" href="git_init.html">git init &amp; git status</a></li>
+<li class="toctree-l1"><a class="reference internal" href="areas.html">Git Areas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="een_file_aanmaken.html">Een file aanmaken</a></li>
+<li class="toctree-l1"><a class="reference internal" href="git_add_git_commit.html">git add &amp; git commit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="git_log_git_checkout.html">git log &amp; git checkout</a></li>
+<li class="toctree-l1"><a class="reference internal" href="git_config.html">git config</a></li>
+<li class="toctree-l1"><a class="reference internal" href="git_clone.html">git clone</a></li>
+<li class="toctree-l1"><a class="reference internal" href="git_branch.html">git branch (&amp; git checkout)</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">git merge &amp; (git log)</a></li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Git & GitHub Workshop</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>git merge &amp; (git log)</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="_sources/git_merge.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            
+  <div class="section" id="git-merge-git-log">
+<h1>git merge &amp; (git log)<a class="headerlink" href="#git-merge-git-log" title="Permalink to this headline">¶</a></h1>
+<div class="highlight-bash"><div class="highlight"><pre><span class="o">[</span>dion@localhost repo_een<span class="o">]</span><span class="nv">$ </span>git branch
+  master
+* vraag_zip
+<span class="o">[</span>dion@localhost repo_een<span class="o">]</span><span class="nv">$ </span>cat show_dir.sh
+<span class="c">#!/bin/bash</span>
+
+<span class="nb">echo</span> <span class="s2">&quot;Dit is de directory:&quot;</span>
+
+ls -lahi
+
+<span class="k">while </span><span class="nb">true</span>; <span class="k">do</span>
+<span class="k">  </span><span class="nb">read</span> -p <span class="s2">&quot;Deze folder gzippen? [j/n]&quot;</span> jn
+  <span class="k">case</span> <span class="nv">$jn</span> in
+  <span class="o">[</span>j<span class="o">]</span>* <span class="o">)</span> tar -cvzf dir_archief . ; <span class="nb">exit</span>;;
+  <span class="o">[</span>n<span class="o">]</span>* <span class="o">)</span> <span class="nb">exit</span> ;;
+  * <span class="o">)</span> <span class="nb">echo</span> <span class="s2">&quot;Graag &#39;j&#39; of &#39;n&#39; gebruiken...&quot;</span>;;
+  <span class="k">esac</span>
+<span class="k">done</span>
+<span class="o">[</span>dion@localhost repo_een<span class="o">]</span><span class="nv">$ </span>git checkout master
+Switched to branch <span class="s1">&#39;master&#39;</span>
+<span class="o">[</span>dion@localhost repo_een<span class="o">]</span><span class="nv">$ </span>git branch
+* master
+  vraag_zip
+<span class="o">[</span>dion@localhost repo_een<span class="o">]</span><span class="nv">$ </span>cat show_dir.sh
+<span class="c">#!/bin/bash</span>
+
+<span class="nb">echo</span> <span class="s2">&quot;Dit is de directory:&quot;</span>
+
+ls -lahi
+</pre></div>
+</div>
+<p>We gaan nu terug naar de branch &#8216;vraag_zip&#8217;. Als we vanuit hier een &#8216;git merge master&#8217; doen dan bedoelen we daarmee dat we alle wijzigingen van &#8216;master&#8217; willen samenvoegen met de branch waarin we nu zitten. Aangezien er geen wijzigingen in &#8216;maaster&#8217; zijn geweest valt er niks te mergen.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="o">[</span>dion@localhost repo_een<span class="o">]</span><span class="nv">$ </span>git checkout vraag_zip
+Switched to branch <span class="s1">&#39;vraag_zip&#39;</span>
+<span class="o">[</span>dion@localhost repo_een<span class="o">]</span><span class="nv">$ </span>git merge master
+Already up-to-date.
+</pre></div>
+</div>
+<p>Als we nu terug gaan naar &#8216;master&#8217; en vanuit daar een &#8216;git merge vraag_zip&#8217;, dan neemt &#8216;master&#8217; alle wijzigingen van de branch &#8216;vraag_zip&#8217; mee.</p>
+<div class="highlight-bash"><div class="highlight"><pre>Switched to branch <span class="s1">&#39;master&#39;</span>
+<span class="o">[</span>dion@localhost repo_een<span class="o">]</span><span class="nv">$ </span>git merge vraag_zip
+Updating 349bf47..4ce38c9
+Fast-forward
+ show_dir.sh | 9 +++++++++
+ 1 file changed, 9 insertions<span class="o">(</span>+<span class="o">)</span>
+<span class="o">[</span>dion@localhost repo_een<span class="o">]</span><span class="nv">$ </span>cat show_dir.sh
+<span class="c">#!/bin/bash</span>
+
+<span class="nb">echo</span> <span class="s2">&quot;Dit is de directory:&quot;</span>
+
+ls -lahi
+
+<span class="k">while </span><span class="nb">true</span>; <span class="k">do</span>
+<span class="k">  </span><span class="nb">read</span> -p <span class="s2">&quot;Deze folder gzippen? [j/n]&quot;</span> jn
+  <span class="k">case</span> <span class="nv">$jn</span> in
+  <span class="o">[</span>j<span class="o">]</span>* <span class="o">)</span> tar -cvzf dir_archief . ; <span class="nb">exit</span>;;
+  <span class="o">[</span>n<span class="o">]</span>* <span class="o">)</span> <span class="nb">exit</span> ;;
+  * <span class="o">)</span> <span class="nb">echo</span> <span class="s2">&quot;Graag &#39;j&#39; of &#39;n&#39; gebruiken...&quot;</span>;;
+  <span class="k">esac</span>
+<span class="k">done</span>
+
+<span class="o">[</span>dion@localhost repo_een<span class="o">]</span><span class="nv">$ </span>git checkout master
+Switched to branch <span class="s1">&#39;master&#39;</span>
+<span class="o">[</span>dion@localhost repo_een<span class="o">]</span><span class="nv">$ </span>git merge vraag_zip
+Updating 349bf47..4ce38c9
+Fast-forward
+ show_dir.sh | 9 +++++++++
+ 1 file changed, 9 insertions<span class="o">(</span>+<span class="o">)</span>
+<span class="o">[</span>dion@localhost repo_een<span class="o">]</span><span class="nv">$ </span>cat show_dir.sh
+<span class="c">#!/bin/bash</span>
+
+<span class="nb">echo</span> <span class="s2">&quot;Dit is de directory:&quot;</span>
+
+ls -lahi
+
+<span class="k">while </span><span class="nb">true</span>; <span class="k">do</span>
+<span class="k">  </span><span class="nb">read</span> -p <span class="s2">&quot;Deze folder gzippen? [j/n]&quot;</span> jn
+  <span class="k">case</span> <span class="nv">$jn</span> in
+  <span class="o">[</span>j<span class="o">]</span>* <span class="o">)</span> tar -cvzf dir_archief . ; <span class="nb">exit</span>;;
+  <span class="o">[</span>n<span class="o">]</span>* <span class="o">)</span> <span class="nb">exit</span> ;;
+  * <span class="o">)</span> <span class="nb">echo</span> <span class="s2">&quot;Graag &#39;j&#39; of &#39;n&#39; gebruiken...&quot;</span>;;
+  <span class="k">esac</span>
+<span class="k">done</span>
+</pre></div>
+</div>
+<p>Zoals je weet kan je met &#8216;git log&#8217; de history zien. Er zijn wat opties voor &#8216;git log&#8217; die handig kunnen zijn, waarbij:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="31%" />
+<col width="69%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>- -oneline</td>
+<td>zet de commit op een lijn</td>
+</tr>
+<tr class="row-even"><td>- -decorate</td>
+<td>laat ook de head en de branch zien</td>
+</tr>
+<tr class="row-odd"><td>- -graph</td>
+<td>maak</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-bash"><div class="highlight"><pre><span class="o">[</span>dion@localhost repo_een<span class="o">]</span><span class="nv">$ </span>git log
+commit 4ce38c95761aa587f00c359fa7fccc6cda64bea0
+Author: Dion H.J. Dresschers &lt;d.h.j.dresschers@hva.nl&gt;
+Date:   Tue Mar 17 08:49:54 2015 -0400
+
+    Script uitgebreid met gzip mogelijkheid
+
+commit 349bf475ecce786e90e6432bc1fd32c142d8ca37
+Author: Dion Dresschers &lt;dion@localhost.localdomain&gt;
+Date:   Fri Mar 13 08:46:07 2015 -0400
+
+    Ook human-readible en inodes toegevoegd
+
+commit e0d1981c46c1e25eb99379f1387e12f3dab0fffa
+Author: Dion Dresschers &lt;dion@localhost.localdomain&gt;
+Date:   Fri Mar 13 06:47:55 2015 -0400
+
+    Nieuw bash script gemaakt
+<span class="o">[</span>dion@localhost repo_een<span class="o">]</span><span class="nv">$ </span>git log
+commit 4ce38c95761aa587f00c359fa7fccc6cda64bea0
+Author: Dion H.J. Dresschers &lt;d.h.j.dresschers@hva.nl&gt;
+Date:   Tue Mar 17 08:49:54 2015 -0400
+
+    Script uitgebreid met gzip mogelijkheid
+
+commit 349bf475ecce786e90e6432bc1fd32c142d8ca37
+Author: Dion Dresschers &lt;dion@localhost.localdomain&gt;
+Date:   Fri Mar 13 08:46:07 2015 -0400
+
+    Ook human-readible en inodes toegevoegd
+
+commit e0d1981c46c1e25eb99379f1387e12f3dab0fffa
+Author: Dion Dresschers &lt;dion@localhost.localdomain&gt;
+Date:   Fri Mar 13 06:47:55 2015 -0400
+
+    Nieuw bash script gemaakt
+<span class="o">[</span>dion@localhost repo_een<span class="o">]</span><span class="nv">$ </span>git log --oneline
+4ce38c9 Script uitgebreid met gzip mogelijkheid
+349bf47 Ook human-readible en inodes toegevoegd
+e0d1981 Nieuw bash script gemaakt
+<span class="o">[</span>dion@localhost repo_een<span class="o">]</span><span class="nv">$ </span>git log --oneline --decorate
+4ce38c9 <span class="o">(</span>HEAD, vraag_zip, master<span class="o">)</span> Script uitgebreid met gzip mogelijkheid
+349bf47 Ook human-readible en inodes toegevoegd
+e0d1981 Nieuw bash script gemaakt
+<span class="o">[</span>dion@localhost repo_een<span class="o">]</span><span class="nv">$ </span>git log --oneline --decorate --graph
+* 4ce38c9 <span class="o">(</span>HEAD, vraag_zip, master<span class="o">)</span> Script uitgebreid met gzip mogelijkheid
+* 349bf47 Ook human-readible en inodes toegevoegd
+* e0d1981 Nieuw bash script gemaakt
+</pre></div>
+</div>
+<p>Met &#8216;man git log&#8217; kan je de manual van de git logging. Bij complexere repo&#8217;s waarmeerdere mensen in verschillende branches werken kan dit een mooi beeld opgeven.</p>
+<img alt="_images/git_log.png" src="_images/git_log.png" />
+<div class="highlight-bash"><div class="highlight"><pre><span class="o">[</span>dion@localhost repo_een<span class="o">]</span><span class="nv">$ </span>git log --oneline --graph --decorate<span class="o">=</span>full
+* 4ce38c9 <span class="o">(</span>HEAD, refs/heads/vraag_zip, refs/heads/master<span class="o">)</span> Script uitgebreid met gzip mogelijkheid
+* 349bf47 Ook human-readible en inodes toegevoegd
+* e0d1981 Nieuw bash script gemaakt
+</pre></div>
+</div>
+<p>Je kan zien dat bovenstaand voor een aardig lange commandoregel kan zorgen.</p>
+<p>Je kan hier een git alias maken.bijvoorbeeld &#8216;lola&#8217;:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="o">[</span>dion@localhost repo_een<span class="o">]</span><span class="nv">$ </span>git lola
+git <span class="s1">&#39;lola&#39;</span> is not a git command. See <span class="s1">&#39;git --help&#39;</span>.
+
+<span class="o">[</span>dion@localhost repo_een<span class="o">]</span><span class="nv">$ </span>git config --global alias.lola <span class="s1">&#39;!git log --graph --decorate --pretty=oneline --abbrev-commit --all&#39;</span>
+
+Je kan ook voor het overzicht ook wat kleurtjes toevegen in de config:
+</pre></div>
+</div>
+<div class="highlight-bash"><div class="highlight"><pre><span class="o">[</span>dion@localhost repo_een<span class="o">]</span><span class="nv">$ </span>git config --global color.ui <span class="s2">&quot;auto&quot;</span>
+
+<span class="o">[</span>dion@localhost repo_een<span class="o">]</span><span class="nv">$ </span>cat ~/.gitconfig
+<span class="o">[</span>user<span class="o">]</span>
+    <span class="nv">name</span> <span class="o">=</span> Dion H.J. Dresschers
+    <span class="nv">email</span> <span class="o">=</span> d.h.j.dresschers@hva.nl
+
+<span class="o">[</span><span class="nb">alias</span><span class="o">]</span>
+    <span class="nv">lola</span> <span class="o">=</span> !git log --graph --decorate --pretty<span class="o">=</span>oneline --abbrev-commit --all
+</pre></div>
+</div>
+<dl class="docutils">
+<dt>[color]</dt>
+<dd>ui = auto</dd>
+</dl>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="git_branch.html" class="btn btn-neutral" title="git branch (&amp; git checkout)"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Dion Dresschers.
+    </p>
+  </div>
+
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

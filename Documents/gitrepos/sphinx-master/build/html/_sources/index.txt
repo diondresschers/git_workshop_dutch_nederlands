@@ -19,6 +19,7 @@
    git_config 
    git_clone
    git_branch
+   git_merge
 
 Welkom bij de Git & GitHub Workshop! 
 ====================================

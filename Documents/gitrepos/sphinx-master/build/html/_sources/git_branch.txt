@@ -156,7 +156,7 @@ We gaan nu met 'git add' en 'git commit' de wijzingen doorvoeren naar de Staging
     [vraag_zip 489f96a] Script uitgebreid met gzip mogelijkheid
      1 file changed, 9 insertions(+)
 
-     We zien in dat we netjes in de 'brach' 'vraag_zip' zitten, en dat de wijzingen netjes opgenoemn zijn in de 'git log'. Echter geldt dit alleen voor de 'branch' 'vraag zip':
+We zien in dat we netjes in de 'brach' 'vraag_zip' zitten, en dat de wijzingen netjes opgenoemn zijn in de 'git log'. Echter geldt dit alleen voor de 'branch' 'vraag zip':
      
 .. code-block:: bash
     [dion@localhost repo_een]$ git status
@@ -182,4 +182,12 @@ We gaan nu met 'git add' en 'git commit' de wijzingen doorvoeren naar de Staging
 
         Nieuw bash script gemaakt
 
+Met 'git branch' kan je ook zien welke branches er zijn en in welke nu geselecteerd is (zie de asterisk '*').
 
+Je ziet hieronder dat de status van de file in de verschillende branches anders zijn.
+
+.. code-block:: bash
+
+        dion@localhost repo_een]$ git branch
+          master
+        * vraag_zip
