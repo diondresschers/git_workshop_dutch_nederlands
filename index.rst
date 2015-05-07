@@ -12,6 +12,14 @@
    centos_installatie
    git_installatie
    git_init
+   areas
+   een_file_aanmaken
+   git_add_git_commit
+   git_log_git_checkout
+   git_config 
+   git_clone
+   git_branch
+   git_merge
 
 Welkom bij de Git & GitHub Workshop! 
 ====================================

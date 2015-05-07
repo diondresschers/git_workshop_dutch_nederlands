@@ -2,6 +2,8 @@
 Git Installatie
 ===============
 
+dresh
+
 Log eerst in op je VM:
 
 .. code-block:: bash
@@ -21,6 +23,7 @@ Daar kijk je of git al geinstalleerd is:
 Dan installeer 'git' via de 'yum' installer:
 
 .. code-block:: bash
+
     dion@localhost ~]$ yum install git
     Loaded plugins: fastestmirror
     You need to be root to perform this command.

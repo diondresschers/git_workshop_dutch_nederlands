@@ -1,6 +1,6 @@
-===============
-Starten met Git
-===============
+=====================
+git init & git status
+=====================
 
 We gaan eerst naar onze home directory (~) en maken daar een lege directory.
 
