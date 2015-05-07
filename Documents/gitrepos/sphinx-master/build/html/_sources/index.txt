@@ -1,0 +1,138 @@
+.. Git & GitHub Workshop documentation master file, created by
+   sphinx-quickstart on Thu Feb  5 11:01:14 2015.
+   You can adapt this file completely to your liking, but it should at least
+   contain the root `toctree` directive.
+
+
+
+.. toctree::
+   :maxdepth: 2
+
+   virtualbox_installatie 
+   centos_installatie
+   git_installatie
+   git_init
+   areas
+   een_file_aanmaken
+   git_add_git_commit
+   git_log_git_checkout
+   git_config 
+   git_clone
+   git_branch
+   git_merge
+
+Welkom bij de Git & GitHub Workshop! 
+====================================
+
+Welkom bij de Git & GitHub Workshop. Deze cursus is zo opgebouwd dat alle oefeningen uit te voeren zijn in een virtuele machine (VM). We gebruiken Centos 7 als besturingssysteem voor de VM en virtualizeren op VirtualBox.
+
+Deze zin heeft *schuine* tekst. ``*schuine*``
+
+Dit is **vetgedrukt**. ``**vetgedrukt**``
+
+Code zoals ``ls -l`` kan ook worden weergegeven. ````code````
+
+Ja kan escapen met \\.
+
+Je kan ook :superscript:`superscripten` gebruiken. ``:superscript:`superscripten```
+
+En natuurlijk ook :subscript:`subscriptjes` inzetten. ``:superscript:`subscriptjes```
+
+Je kan referen naar boeken of andere :title-reference:`titels`
+
+*****
+Titel
+*****
+
+``*****``
+
+``Titel``
+
+``*****``
+
+Subtitel
+########
+
+``Subtitel``
+
+``########``
+
+Subsubtitle
+***********
+
+``Subsubtitle``
+
+``***********``
+
+.. image:: /images/index.jpg
+
+
+``.. image:: /images/index.jpg``
+
+.. image:: /images/oldmac.svg
+
+``.. image:: /image/oldmac.svg``
+
+`Subsubtitle`
+
+\`Subtitle\`_ (een interne link naar een Titel)
+
+`Wikipedia <http://wikipedia.org>`_
+
+\`Wikipedia <http://wikipedia.org>\`_
+
+* Unnumbered bullet list
+* Another item
+* Yet another item
+
+1. Numbered list
+2. Second number
+3. Yep the third
+
+#. And we continue to count
+#. So this is item 5.
+
++---------+----------+
+|Simple   |Tabel     |
++---------+----------+
+|Without  |Header    |
++---------+----------+
+
++---------+----------+
+|With     |Headert   |
++=========+==========+
+|with colspan :)     |
++---------+----------+
+|and      |row 1     |
+|         +----------+
+|yeah     |row 2     |
++---------+----------+
+
+.. seealso:: This is a simple also 'seelaso'.
+
+.. note:: This is a simple 'note'.
+
+.. warning:: This is a 'warning".
+
+.. todo:: Dit is een 'todo'
+
+.. [Citaatje] Dit is een citaat.
+
+Dit is een footnote [#voetnootje]_
+
+.. rubric:: Footnotes
+
+.. [#voetnootje] Dit is een voetnootje
+
+
+
+
+[Citaatje]_
+
+
+
+
+.. * :ref:`genindex`
+.. * :ref:`modindex`
+.. * :ref:`search`
+
