@@ -2,19 +2,19 @@
 CentOS 7 Installatie
 ====================
 
-Nadat je een VM met CentOS 7 hebt aangemaakt moeten we hem nog verder configueren.
+Nadat je een VM met CentOS 7 hebt aangemaakt moeten we hem nog verder configureren.
 
-Je hebt tijdens de installatie in ieder geval een 'root' account aangemaakt met wachtwoord. 
+Je hebt tijdens de installatie in ieder geval een 'root' account aangemaakt met bijbehorend wachtwoord. 
 
 Je kan nu inloggen met dit account.
 
-Bij 'localhost login:' vul je 'root' in, en bij 'Password:' uiteraard het paswoord.
+Bij 'localhost login:' vul je 'root' in, en bij 'Password:' uiteraard het wachtwoord.
 
-Waarschijnlijk ben je nu niet verbonden met het netwerk (dit in het geval als je fysieke PC dat wel is).
+Waarschijnlijk ben je nu niet verbonden met internet (dit in het geval als je fysieke computer wel verbonden is).
 
-Type 'ping 8.8.8.8' om te kunnen testen of je kan pingen naar een publieke server op het internet.
+Typ 'ping 8.8.8.8' om te kunnen testen of je kan pingen naar een publieke server op het internet.
 
-Type 'ip address show' om je huidige netwerk interfaces te zien inclusief een mogelijk IP adres.
+Typ 'ip address show' om je huidige netwerk interfaces te zien inclusief een mogelijk IP adres.
 
 Zoals onder te zien is een ping naar 8.8.8.8 niet succesvol.
 
@@ -25,19 +25,19 @@ Verder heb je twee interfaces:
 * lo
 * enp0s3
 
-De 'lo' interface is een lokaal interface en kan je negeren. We focussen ons op het andere adres waarmee communicatie met andere machines mee mogelijk is. Het is goed mogelijk dat de inteface op jouw VM een andere benaming heeft.
+De 'lo' interface is een lokale interface en kan je negeren. We focussen ons op het andere adres waarmee communicatie met andere machines mogelijk is. Het is goed mogelijk dat de inteface op jouw VM een andere benaming heeft.
 
 De reden dat deze interace geen IP address is omdat deze standaard uit staat. Je kan het opstartscript voor deze interace bekijken via 'cat /etc/sysconfig/network-scripts/ifcfg-enp0s3'.
 
 Je ziet hier staan 'ONBOOT=no'.
 
-We gaan nu de file wijzigen in het programma 'vi' (of beter gezet 'vim').
+We gaan nu het bestand file wijzigen in het programma 'vi' (of beter gezet 'vim').
 
 Typ hiervoor 'vi /etc/sysconfig/network-scripts/ifcfg-enp0s3'.
 
 .. warning:: Zorg dat je 'root' rechten hebt zodat je de file kan veranderen. Hiervoor moet je 'root' zijn, of 'sudo' typen voor elk commando om deze rechten te krijgen.
 
-Druk dan 'i' om naar 'insert' mode te gaan. Gebruik dan de pijltjes toetsen om 'ONBOOT=no' te vernderen in 'ONBOOT=yes'. Daarna druk je de 'ESC'-toets, vervolgd door 'wq'.
+Druk dan 'i' om naar 'insert' mode te gaan. Gebruik dan de pijltjes toetsen om 'ONBOOT=no' te veranderen in 'ONBOOT=yes'. Daarna druk je de ESC-toets, vervolgd door 'wq' en dan de ENTER-toets.
 
 Je kan nu het netwerk herstarten met ``systemctl restart network.service``. Een ander alternatief (de botte bijl manier) is om de VM te herstarten met ``systemctl reboot``.
 
@@ -47,7 +47,7 @@ We kunnen ook pingen naar 8.8.8.8.
 
 .. image:: /images/centos_network.png
 
-Je kan ook pingen naar je eigen interface via ``ping 10.0.2.15``.
+Je kan ook pingen naar je eigen interface met ``ping 10.0.2.15``.
 
 Probeer je echter te pingen naar 10.0.2.15 vanaf je eigen computer (dus niet vanuit de VM), dan zie je dat het niet lukt.
 
@@ -72,11 +72,11 @@ Klik daar op het icoontje met het plus-teken. En vul onderstaande gegevens in:
 
 .. image:: /images/virtualbox_port_forwarding_rules.png
 
-Dit betekent dat als je naar je eigen machine verbindt (bv. via IP adres 127.0.0.1) met poort 2222 dat je dan met de VM verbindt met poort 22. Dit is standaard SSH. Je kan nu dus verbinden via SSH (een commando regel verbinding), met de VM.
+Dit betekent dat als je naar je eigen machine verbindt (bv. via IP adres 127.0.0.1) met poort 2222 dat je dan met de VM verbindt met poort 22. Dit is de standaard poort van SSH (Secure SHell). Je kan nu dus verbinden via SSH (een commandoregel verbinding) met de VM.
 
 .. note:: In Linux en hoogstwaarschijnlijk in MacOS zit standaard een SSH programma. Het kan zijn dat Windows deze niet heeft. In dat geval kan je `PuTTY downloaden <http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html>`_ waarmee je wel via SSH verbinding kan maken.
 
-.. code-block::
+.. code-block:: bash
 
     dion@dionysos:~$ ssh 127.0.0.1 -p2222
     The authenticity of host '[127.0.0.1]:2222 ([127.0.0.1]:2222)' can't be established.
@@ -85,9 +85,10 @@ Dit betekent dat als je naar je eigen machine verbindt (bv. via IP adres 127.0.0
     Warning: Permanently added '[127.0.0.1]:2222' (ECDSA) to the list of known hosts.
     dion@127.0.0.1's password: 
 
-Als je geen naam invoert (zoals boven) de naam gebruikt dat je op dat moment gebruikt. In bovenstaand voorbeeld is dat 'dion'. Wil je meteen met 'root' inloggen geef dat dan mee:
+Als je geen naam invoert (zoals boven), dan wordt de naam gebruikt waar je op dat moment op je eigen fysieke computer bent ingelogd. In bovenstaand voorbeeld is dat 'dion'. Wil je meteen met 'root' inloggen geef dat dan mee:
 
-.. code-block::
+.. code-block:: bash
+
     dionysos:~$ ssh root@127.0.0.1 -p2222
     root@127.0.0.1's password: 
     X11 forwarding request failed on channel 0

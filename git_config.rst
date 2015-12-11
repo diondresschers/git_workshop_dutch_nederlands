@@ -2,7 +2,7 @@
 git config
 ==========
 
-Tot nu hebben we git voornamelijk voor onze eigen machine gebruikt. Op het moment dat je met meerdere personen in dezelfde repository gaat werken, of als je reposiries op internet gaat zetten is het beter om netjes een identiteit te zetten. Dit doe je met 'git commit'.
+Tot nu hebben we Git voornamelijk op onze eigen machine gebruikt. Op het moment dat je met meerdere personen in dezelfde repository gaat werken of als je repositories op internet gaat zetten is het beter om netjes een identiteit te plaatsen. Dit doe je met 'git commit'.
 
 .. code-block:: bash
 
@@ -27,13 +27,11 @@ We gaan dit nu aanpassen met 'git config', voor de 'user.name' en 'user.email':
      dion@localhost repo_een]$ git config --global user.name "Dion H.J. Dresschers"
      [dion@localhost repo_een]$ git config --global user.email "d.h.j.dresschers@hva.nl"
 
-We kunnen nu als bonus een 'commit' doen om de gebruikersnaam te zetten (dit commando wordt altijd genoemd na een 'commit' als je gebruikersnaam nog niet gezet is).
+We kunnen nu als bonus een 'commit' doen om de gebruikersnaam te gebruiken (dit commando wordt altijd genoemd na een 'commit' als je gebruikersnaam nog niet gezet is).
 
 .. code-block:: bash
 
     [dion@localhost repo_een]$ git commit --amend --reset-author
-
-`Cambridge Dictionary: amend <http://dictionary.cambridge.org/dictionary/british/amend>`_
 
 Je ziet nu dat de gebruiker aangepast is.
 
@@ -58,7 +56,7 @@ Je ziet nu dat de gebruiker aangepast is.
 
         Nieuw bash script gemaakt
 
-De configuratie instellingen kunnen op verschillende files gezet zijn. Hieronder zie je die files geordend per prioriteit (waar '1' de voorkeur heeft boven '2').
+De configuratie instellingen zoals je naam kunnen in verschillende files gedefinieerd zijn. Hieronder zie je die files geordend per prioriteit (waar '1' de voorkeur heeft boven '2').
 
 #. Repository Settings
     '*repository*/.git/config'
@@ -67,7 +65,7 @@ De configuratie instellingen kunnen op verschillende files gezet zijn. Hieronder
 #. Global Settings
     '/etc/gitconfig'
 
-Gaan we nu kijken in onze eigen setting zien we voor de Repostory Settings, dit is dus de file in de repostory zelf en hebben hebben dus de hoogste prio:
+Gaan we nu kijken in onze eigen settings, dan zien we dat voor de Repository Settings (dit is dus de file in de repostory zelf) onderstaande instelling staan. Deze Repository Settings hebben dus de hoogste prioriteit.
 
 .. code-block:: bash
 
@@ -81,9 +79,9 @@ Gaan we nu kijken in onze eigen setting zien we voor de Repostory Settings, dit 
         name = Dion H.J. Dresschers
         email = d.h.j.dresschers@hva.nl
 
-Hierboven zien we dat het commando 'git config' deze file heeft aangepast.
+Hierboven zien we dat ons commando 'git config' deze file heeft aangepast.
 
-Voor de user settings (dit is dus de setting in de user home directory).
+Deze heeft dus prioriteit boven de onderstaande user settings (dit is dus de setting in de user home directory).
 
 .. code-block:: bash
 

@@ -3,8 +3,6 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-
-
 .. toctree::
    :maxdepth: 2
 
@@ -21,15 +19,15 @@
    git_branch
    git_merge
 
-Welkom bij de Git & GitHub Workshop! 
-====================================
+Welkom bij de Git & GitHub Cursus!
+==================================
 
-Welkom bij de Git & GitHub Workshop. Deze cursus is zo opgebouwd dat alle oefeningen uit te voeren zijn in een virtuele machine (VM). We gebruiken Centos 7 als besturingssysteem voor de VM en virtualizeren op VirtualBox.
+Welkom bij de Git & GitHub cursus. Deze cursus is zo opgebouwd dat alle oefeningen uit te voeren zijn in een virtuele machine (VM). We gebruiken Centos 7 als besturingssysteem voor de VM en virtualiseren op VirtualBox.
 
-<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons-Licentie" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Git Workshop Nederlands</span> van <a xmlns:cc="http://creativecommons.org/ns#" href="dresschers.net" property="cc:attributionName" rel="cc:attributionURL">Dion Dresschers</a> is in licentie gegeven volgens een <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Naamsvermelding-GelijkDelen 4.0 Internationaal-licentie</a>.
+.. image:: /images/cc-by-sa-orange.png
 
+Git Cursus Nederlands van Dion Dresschers is in licentie gegeven volgens een `Creative Commons Naamsvermelding-GelijkDelen 4.0 Internationaal-licentie <http://creativecommons.org/licenses/by-sa/4.0/>`_.
 
 .. * :ref:`genindex`
 .. * :ref:`modindex`
 .. * :ref:`search`
-

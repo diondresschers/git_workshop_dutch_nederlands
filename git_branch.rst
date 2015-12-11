@@ -4,9 +4,9 @@ git branch (& git checkout)
 
 Je kan in een een repository een nieuwe 'branch' (vertakking) aanmaken.
 
-`Cambridge Dictionary: branch <http://dictionary.cambridge.org/dictionary/british/branch>`
+`Cambridge Dictionary: branch <http://dictionary.cambridge.org/dictionary/british/branch>`_
 
-Er is altijd een 'branch' aanwezig en deze heet 'master'. We gaan even kijken met 'git status' wat het huidige verhaal is.
+Er is altijd een 'branch' aanwezig en deze heet 'master'. We gaan kijken met 'git status' wat het huidige verhaal is.
 
 .. code-block:: bash
 
@@ -16,7 +16,7 @@ Er is altijd een 'branch' aanwezig en deze heet 'master'. We gaan even kijken me
 HEAD betekend de huidige branch. Echter als je 'HEAD detached' ziet staan betekend dat deze wijst naar een andere revisie van de huidige branch.
 
 Dit komt omdat we met een eerdere 'git checkout' in onze historie terug zijn gegaan (een andere revisie hebben gekozen).
-
+ 
 .. code-block:: bash
 
     [dion@localhost repo_een]$ cat show_dir.sh 
@@ -36,7 +36,7 @@ Dit komt omdat we met een eerdere 'git checkout' in onze historie terug zijn geg
 
         Nieuw bash script gemaakt
 
-We kunnen ook het 'git checkout master' naar de meest recentie versie van de standaard branch gaan (en dit is 'master').
+We kunnen ook het 'git checkout master' naar de meest recente versie van de standaard branch gaan (en deze heet 'master').
 
 .. code-block:: bash
 
@@ -64,7 +64,7 @@ We kunnen ook het 'git checkout master' naar de meest recentie versie van de sta
 
     ls -lahi
 
-Als we nu nog een keer een 'git status' doorvoeren, zien we netjes in welke branch we zitten (in 'master'). De melding van 'HEAD detached' zien we ook niet meer, (omdat we in de meest recentie revisie zitten).
+Als we nu nog een keer een 'git status' doorvoeren, zien we netjes in welke branch we zitten (in 'master'). De melding van 'HEAD detached' zien we ook niet meer, (omdat we in de meest recente revisie zitten).
 
 .. code-block:: bash
 
@@ -72,13 +72,13 @@ Als we nu nog een keer een 'git status' doorvoeren, zien we netjes in welke bran
     # On branch master
     nothing to commit, working directory clean
 
-In plaats van te gaan spelen met de reviesies, gaan we maar even een nieuwe branch aanmaken met 'git branch':
+In plaats van te gaan spelen met de revisies, maken we een nieuwe branch aan met 'git branch':
 
 .. code-block:: bash
 
     [dion@localhost repo_een]$ git branch vraag_zip
 
-    Je ziet dat we niet automatisch naar de nieuw aangemaakte branch gaan.
+Je ziet dat we niet automatisch naar de nieuw aangemaakte branch gaan:
 
 .. code-block:: bash
     [dion@localhost repo_een]$ git status
@@ -156,7 +156,7 @@ We gaan nu met 'git add' en 'git commit' de wijzingen doorvoeren naar de Staging
     [vraag_zip 489f96a] Script uitgebreid met gzip mogelijkheid
      1 file changed, 9 insertions(+)
 
-We zien in dat we netjes in de 'brach' 'vraag_zip' zitten, en dat de wijzingen netjes opgenoemn zijn in de 'git log'. Echter geldt dit alleen voor de 'branch' 'vraag zip':
+We zien in dat we netjes in de 'branch' 'vraag_zip' zitten, en dat de wijzingen opgenomen zijn in de 'git log'. Echter geldt dit alleen voor de 'branch' 'vraag_zip':
      
 .. code-block:: bash
     [dion@localhost repo_een]$ git status
@@ -183,8 +183,6 @@ We zien in dat we netjes in de 'brach' 'vraag_zip' zitten, en dat de wijzingen n
         Nieuw bash script gemaakt
 
 Met 'git branch' kan je ook zien welke branches er zijn en in welke nu geselecteerd is (zie de asterisk '*').
-
-Je ziet hieronder dat de status van de file in de verschillende branches anders zijn.
 
 .. code-block:: bash
 

@@ -2,8 +2,6 @@
 Git Installatie
 ===============
 
-dresh
-
 Log eerst in op je VM:
 
 .. code-block:: bash
@@ -20,7 +18,7 @@ Daar kijk je of git al geinstalleerd is:
     [dion@localhost ~]$ git
     -bash: /usr/bin/git: No such file or directory
 
-Dan installeer 'git' via de 'yum' installer:
+Dan installeer 'git' via het 'yum' installeerpakket: 
 
 .. code-block:: bash
 

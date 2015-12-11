@@ -2,16 +2,16 @@
 git clone
 =========
 
-We hebben hiervoor onze eigen repository gemaakt. Je kan echter ook bestaande repositories op andere machines 'clonen' naar je eigen computer.
+We hebben in dit voorbeeld onze eigen repository gemaakt. Je kan echter ook bestaande repositories op andere machines 'clonen' naar je eigen computer.
 
 Repositories kunnen op verschillende plaatsen staan:
 
 #. Op je eigen machine (dit hebben we in de vorige voorbeelden gedaan).
-#. Gehost op `GitHub <http://www.github.com>` (deze is gratis voor Open Source projecten)
-#. Een 'GitHub alternatief <http://toppersworld.com/top-10-free-github-alternatives-for-private-repositories/>`.
-#. Een eigen git server, bijvoorbeeld via `Gitolite <http://gitolite.com>`.
+#. Gehost op `GitHub <http://www.github.com>`_ (deze is gratis voor Open Source projecten)
+#. Een GitHub `alternatief <http://toppersworld.com/top-10-free-github-alternatives-for-private-repositories/>`_.
+#. Een eigen git server, bijvoorbeeld via `Gitolite <http://gitolite.com>`_.
 
-We gaan nu een Open Source projectje binnenhalen ('clonen') via GitHub.
+We gaan nu een Open Source project binnenhalen ('clonen') van GitHub.
 
 We zoeken iets met de standaard Linux scripttaal Bash, naar iets wat kan backuppen.
 
@@ -23,7 +23,7 @@ De eerste hit ziet er wel interessant uit, dus we klikken op 'Pricetx/backup':
 
 .. image:: /images/github_pricetx.png
 
-Rechts zie je bij 'HTTPS clone URL' de URL staan die je kan gebruiken om te 'clonen'. Kopieer deze tekst want deze gaan we hierna gebruiken. Heb je eenmaal een GitHub account (en heb je een 'ssh-key' aangemaakt en geuploaded), dan kan het het ook copieren via SSH, zelf je repositories daar neerzetten, clonen en wijzigingen 'pushen'
+Rechts zie je bij 'HTTPS clone URL' de URL staan die je kan gebruiken om te 'clonen'. Kopieer deze URL want deze gaan we hierna gebruiken. Heb je eenmaal een GitHub account (en heb je een 'ssh-key' aangemaakt en geuploaded), dan kan je het het ook copieren via SSH, zelf je repositories plaatsen, en wijzigingen 'pushen'.
 
 Eerst kijken we welke repositories we hebben (we zien alleen de repo die we zelf gemaakt hebben).
 
@@ -34,7 +34,7 @@ Eerst kijken we welke repositories we hebben (we zien alleen de repo die we zelf
         total 0
         drwxrwxr-x. 3 dion dion 35 Mar 13 10:43 repo_een
 
-We gaan nu ons uit GitHub gezochte repository clonen:
+We gaan nu ons uit GitHub gezochte repository 'clonen':
 
 .. code-block:: bash
 
@@ -100,13 +100,4 @@ We zien zelfs dat de hele history meegekomen is:
 
         Initial commit
     (END)
-
-
-
-
-
-
-
-
-
 

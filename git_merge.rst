@@ -2,14 +2,19 @@
 git merge & (git log)
 =====================
 
+Hieronder staat de huidige situatie:
 
 .. code-block:: bash
 
     [dion@localhost repo_een]$ git branch
       master
     * vraag_zip
+
+.. code-block:: bash
+
     [dion@localhost repo_een]$ cat show_dir.sh 
     #!/bin/bash
+
 
     echo "Dit is de directory:"
 
@@ -23,11 +28,21 @@ git merge & (git log)
       * ) echo "Graag 'j' of 'n' gebruiken...";;
       esac
     done
+
+.. code-block:: bash
+
     [dion@localhost repo_een]$ git checkout master
     Switched to branch 'master'
+
+.. code-block:: bash
+
     [dion@localhost repo_een]$ git branch
     * master
       vraag_zip
+
+
+.. code-block:: bash
+
     [dion@localhost repo_een]$ cat show_dir.sh 
     #!/bin/bash
 
@@ -35,7 +50,7 @@ git merge & (git log)
 
     ls -lahi
 
-We gaan nu terug naar de branch 'vraag_zip'. Als we vanuit hier een 'git merge master' doen dan bedoelen we daarmee dat we alle wijzigingen van 'master' willen samenvoegen met de branch waarin we nu zitten. Aangezien er geen wijzigingen in 'maaster' zijn geweest valt er niks te mergen.
+We gaan nu terug naar de branch 'vraag_zip'. Als we vanuit hier een 'git merge master' doen dan bedoelen we daarmee dat we alle wijzigingen van de branch 'master' willen samenvoegen met de branch waarin we nu zitten. Aangezien er geen wijzigingen in 'master' zijn geweest valt er niks te mergen.
 
 .. code-block:: bash
 
@@ -94,15 +109,15 @@ Als we nu terug gaan naar 'master' en vanuit daar een 'git merge vraag_zip', dan
     done
 
 
-Zoals je weet kan je met 'git log' de history zien. Er zijn wat opties voor 'git log' die handig kunnen zijn, waarbij:
+Zoals je weet kan je met 'git log' de historie zien. Er zijn wat opties voor 'git log' die handig kunnen zijn, waarbij:
 
-+----------------+-----------------------------------+
-| \- \-oneline   | zet de commit op een lijn         |
-+----------------+-----------------------------------+
-| \- \-decorate  | laat ook de head en de branch zien|
-+----------------+-----------------------------------+
-| \- \-graph     | maak                              |
-+----------------+-----------------------------------+
++----------------+-------------------------------------------------+
+| \-\-oneline   | zet de commit op een lijn                        |
++----------------+-------------------------------------------------+
+| \-\-decorate  | laat ook de head en de branch zien               |
++----------------+-------------------------------------------------+
+| \-\-graph     | maak vertakkingen door branches en merges visueel|
++----------------+-------------------------------------------------+
 
 .. code-block:: bash
 
@@ -155,7 +170,7 @@ Zoals je weet kan je met 'git log' de history zien. Er zijn wat opties voor 'git
     * 349bf47 Ook human-readible en inodes toegevoegd
     * e0d1981 Nieuw bash script gemaakt
 
-Met 'man git log' kan je de manual van de git logging. Bij complexere repo's waarmeerdere mensen in verschillende branches werken kan dit een mooi beeld opgeven.
+Met 'man git log' krijg je de manual van de git logging. Bij complexere repo's waarmeerdere mensen in verschillende branches werken kan dit een mooi en verhelderend beeld opleveren:
 
 .. image:: /images/git_log.png
 
@@ -168,7 +183,7 @@ Met 'man git log' kan je de manual van de git logging. Bij complexere repo's waa
 
 Je kan zien dat bovenstaand voor een aardig lange commandoregel kan zorgen.
 
-Je kan hier een git alias maken.bijvoorbeeld 'lola':
+Je kan hier een git alias maken, in dit geval maken we gebruik van de alias 'lola':
 
 .. code-block:: bash
 
@@ -177,7 +192,7 @@ Je kan hier een git alias maken.bijvoorbeeld 'lola':
 
     [dion@localhost repo_een]$ git config --global alias.lola '!git log --graph --decorate --pretty=oneline --abbrev-commit --all'
 
-    Je kan ook voor het overzicht ook wat kleurtjes toevegen in de config:
+    Je kan ook om het overzichtelijker te maken ook kleuren toevoegen in de config.
 
 .. code-block:: bash
 
@@ -190,7 +205,7 @@ Je kan hier een git alias maken.bijvoorbeeld 'lola':
 
     [alias]
 	lola = !git log --graph --decorate --pretty=oneline --abbrev-commit --all
-[color]
+    [color]
 	ui = auto
 
 

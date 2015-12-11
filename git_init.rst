@@ -36,7 +36,7 @@ We kunnen een git repository initialiseren met ``git init``.
     [dion@localhost repo_een]$ git init
     Initialized empty Git repository in /home/dion/repo_een/.git/
 
-Als we nu naar de status kijken zien we dat het nu wel een repository is (op de 'branch' die standaard 'master' heet). Er is alleen nog niks wat 'commit' kan worden.
+Als we nu naar de status kijken zien we dat het nu wel een repository is (op de 'branch' die standaard 'master' heet). Er zijn alleen nog geen wijzigingen in de directory die 'commit' kan worden.
 
 .. code-block:: bash
 
@@ -58,12 +58,17 @@ Kijken we in de directory dan zien we nu de verborgen directory '.git' staan die
     drwx------. 3 dion dion 4096 Feb 18 08:01 ..
     drwxrwxr-x. 7 dion dion 4096 Feb 18 08:01 .git
 
-Hierin staan weer een aantal git bestanden. We willen de filestructuur duidelijk maken met 'tree' maar deze is standaard niet geinstalleerd, dus installeren we hem met 'yum install tree'.
+Hierin staan weer een aantal git bestanden. We willen de filestructuur duidelijk maken met het commando 'tree', maar deze is standaard niet geinstalleerd. 
 
 .. code-block:: bash
 
     [dion@localhost repo_een]$ tree .git
     -bash: tree: command not found
+
+We installeren yum dan ook via 'yum install tree'.
+
+.. code-block:: bash
+
     [dion@localhost repo_een]$ sudo yum install tree
     [sudo] password for dion: 
     Loaded plugins: fastestmirror

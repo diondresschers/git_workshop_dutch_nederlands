@@ -56,9 +56,9 @@ We kunnen nu zien dat een nieuwe file die je weer kan 'unstagen' met 'git rm --c
     #   new file:   show_dir.sh
     #
 
-Nu de file in de Staging Area zit, kan je hem naar de Git Repostory brengen met 'git commit'. Als je dit doet wordt meteen een vim-achtige teksteditor geopenend waar je commentaar voor de wijzigingen in kan zetten. Je sluit het commentaar af met ESC-toets, dan :wq (zelfde als vim).
+Nu de file in de Staging Area zit, kan je hem naar de Git Repostory brengen met 'git commit'. Als je dit doet wordt meteen een vim-achtige teksteditor geopenend waar je commentaar voor de wijzigingen in kan zetten. Je sluit het commentaar af met ESC-toets, dan ':wq' (zelfde als vim).
 
-Een andere optie is om de commentaar meteen in de commandoregel toe te voegen via bijvoorbeeld:
+Een andere optie is om het commentaar meteen in de commandoregel toe te voegen met:
 
 .. code-block:: bash
 
@@ -66,14 +66,13 @@ Een andere optie is om de commentaar meteen in de commandoregel toe te voegen vi
 
 Je ziet nu dat alles 'gecommit' is en dat er geen wijzigingen zijn in de Working Directory.
 
-
 .. code-block:: bash
 
     dion@localhost repo_een]$ git status
     # On branch master
     nothing to commit, working directory clean
 
-We wijzigen nog een keer met 'vim' het script zodat 'ls la', 'ls -lahi' wordt.
+We wijzigen nog een keer met 'vim' het door ons gemaakte script zodat 'ls la', 'ls -lahi' wordt.
 
 Met 'git status' zie je nu de volgende informatie:
 
@@ -89,7 +88,9 @@ Met 'git status' zie je nu de volgende informatie:
     #
     no changes added to commit (use "git add" and/or "git commit -a")
 
-Je krijgt nu de hint dat je een commando 'git commit -a' kan gebruiken in plaats van de losse 'git add' en daarna 'git commit'.
+Je krijgt nu de hint dat je het commando 'git commit -a' kan gebruiken. Dit is een vervanging van een  losse 'git add' en daarna 'git commit'.
+
+.. note:: Git geeft altijd netjes uitleg wat het gedaan heeft, wat er mis gaat of wat je kan doen. Lees daarom deze feedback zorgvuldig.
 
 Dit doen we dus maar braaf en voegen meteen met '-m' commentaar toe.
 
@@ -111,7 +112,7 @@ Dit doen we dus maar braaf en voegen meteen met '-m' commentaar toe.
 
      1 file changed, 1 insertion(+), 1 deletion(-)
 
-Je ziet boven dat er een file gewijzigd is, waarbij er 1 regel bijgekomen is en een gewijzigd. Daarnaast nog een verhaal over dat onze naam en emailadres automatisch gegenereerd is. 
+Je ziet boven dat er 1 file gewijzigd is. Je hebt 'ls -la' veranderd in 'ls -lahi'. Git registeert dit als eerst de oude regel weghalen (1 deletion) en vervolgens de nieuwe (gewijzigde) regel toevoegen (1 insertion). Daarnaast nog de melding dat onze naam en e-mailadres nog niet ingevuld is en netjes de uitleg hoe dit opgelost kan worden (dit gaan we later nog doen).
 
 
 

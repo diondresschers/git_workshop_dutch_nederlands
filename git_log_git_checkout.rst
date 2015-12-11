@@ -2,7 +2,7 @@
 git log & git checkout
 ======================
 
-We gaan nu het versiebeheer van git uitproberen, door wijzigingen terug te draaien.
+We gaan nu het versiebeheer van Git uitproberen, door wijzigingen terug te draaien.
 
 Met 'git log' kan je de geschiedenis van de 'commits' bekijken. Je ziet hieronder onze twee 'commits' met de commentaren en een commit identificatie nummer.
 
@@ -21,7 +21,7 @@ Met 'git log' kan je de geschiedenis van de 'commits' bekijken. Je ziet hieronde
 
         Nieuw bash script gemaakt
 
-We gaan een 'checkout' draaien zodat in de working directory de wijzigen die we in het script hebben gedaan worden terug gedraaid. Dit kan met 'git checkout' en daarna het identificatienummer (minimaal de eerste 4 cijfers, mits dit het nummer uniek maakt.
+We gaan een 'checkout' draaien zodat in de working directory de wijzigen die we in het script hebben gedaan worden terug gedraaid. Dit kan met 'git checkout' en daarna het identificatienummer (minimaal de eerste 4 cijfers, mits dit het nummer uniek maakt).
 
 .. code-block:: bash
 
@@ -39,10 +39,11 @@ We gaan een 'checkout' draaien zodat in de working directory de wijzigen die we 
 
       HEAD is now at e0d1981... Nieuw bash script gemaakt
 
+Je bent in feite teruggegaan in de tijd, maar ook de toekomst bestaat nog. Wil je vanaf waar je nu bent wijzigingen doorvoeren dan kan je een branch aanmaken zoals uitgelegd, maar we gaan branches later uitleggen.
+ 
+We kunnen met 'cat' de inhoud van de file zien en we zien dat onze oude staat van de file bewaard is gebleven.
 
 .. code-block:: bash
-
-We kunnen met 'cat' de inhoud van de file zien en we zien dat onze oude staat van de file bewaard is gebleven.
 
       [dion@localhost repo_een]$ cat show_dir.sh 
 
@@ -52,7 +53,7 @@ We kunnen met 'cat' de inhoud van de file zien en we zien dat onze oude staat va
 
       ls -la
 
-Als we meteen een 'git add' doen zie je dat er niks gewijzigd is:
+Als we meteen een 'git add' doen, dan zie je dat er niks gewijzigd is:
 
 .. code-block:: bash
 
@@ -60,7 +61,7 @@ Als we meteen een 'git add' doen zie je dat er niks gewijzigd is:
     # HEAD detached at e0d1981
     nothing to commit, working directory clean
 
-De veranderingen die we naderhand hebben gemaakt zijn we ook niet kwijt al lijkt het er in eerste instantie wel op via 'git log':
+De veranderingen die we naderhand hebben gemaakt (dus de wijziging van '-la' naar 'lahi') zijn we ook niet kwijt al lijkt het er in eerste instantie wel op via 'git log':
 
 .. code-block:: bash
 
@@ -69,7 +70,7 @@ De veranderingen die we naderhand hebben gemaakt zijn we ook niet kwijt al lijkt
     Author: Dion Dresschers <dion@localhost.localdomain>
     Date:   Fri Mar 13 06:47:55 2015 -0400
 
-Over branching gaan we het later hebben, maar met 'git log --all' zie je alle commits, dus ook onze uitbreiding van het script zijn we niet kwijt.
+Wil je ook de toekomst weer zien dan gebruik je 'git log --all'. Je zou ervoor kunnen kiezen om met 'git checkout 34bf' weer Back to the Future te gaan.
 
 .. code-block:: bash
 
@@ -85,11 +86,4 @@ Over branching gaan we het later hebben, maar met 'git log --all' zie je alle co
     Date:   Fri Mar 13 06:47:55 2015 -0400
 
         Nieuw bash script gemaakt
-
-
-
-
-
-
-
 
